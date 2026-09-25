@@ -309,5 +309,4 @@ streamlit run app/streamlit_app.py
 - Radanliev, P. (2021). Data analytics and business intelligence frameworks in digital supply chain management. *International Journal of Information Management, 58*, 102–123.
 - Statista Research Department. (2024). Revenue impact of business intelligence adoption in hospitality. *Statista Market Insights.*
 - Xiao, Y., & Kumar, V. (2020). Forecasting hotel room demand using machine learning and time-series models. *Tourism Management, 77*, 104–120.
-#   S m a r t - H o t e l - A n a l y t i c s  
- 
+#
