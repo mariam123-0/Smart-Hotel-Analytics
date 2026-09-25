@@ -2,8 +2,6 @@
 
 > A data-driven Business Intelligence & AI system that transforms raw hotel operational data into structured insights, interactive dashboards, and predictive models.
 
-**Digital Egypt Builders Initiative — Final Project**
-Supervised by **Mohamed Hamed**
 
 [![SQL Server](https://img.shields.io/badge/Database-SQL%20Server-CC2927?logo=microsoftsqlserver&logoColor=white)](#)
 [![Python](https://img.shields.io/badge/ETL-Python-3776AB?logo=python&logoColor=white)](#)
@@ -29,11 +27,33 @@ Supervised by **Mohamed Hamed**
 - [Project Structure](#-project-structure)
 - [Getting Started](#-getting-started)
 - [Results & Key Insights](#-results--key-insights)
-- [Future Work](#-future-work)
-- [Team](#-team)
-- [References](#-references)
 
 ---
+## 📁 Project Structure
+
+```
+hotel-data-analysis/
+├── data/
+│   ├── raw/                  # Original source datasets
+│   └── processed/            # Cleaned, transformed data
+├── etl/
+│   └── etl_pipeline.py       # Extract–Transform–Load scripts
+├── sql/
+│   └── warehouse_schema.sql  # Star schema DDL
+├── models/
+│   └── cancellation_model.pkl
+├── notebooks/
+│   └── eda_ai_modeling.ipynb
+├── app/
+│   └── streamlit_app.py
+├── dashboards/
+│   └── hotel_dashboard.pbix
+├── docs/
+│   └── images/
+├── README.md
+└── requirements.txt
+```
+--- 
 
 ## 📖 Overview
 
@@ -57,6 +77,9 @@ Hotels struggle to extract meaningful insights from operational data due to:
 - No AI-driven forecasting for occupancy and revenue
 
 ---
+## Pipeline
+![image alter](https://github.com/mariam123-0/Smart-Hotel-Analytics/blob/3db2cd462a896056134770a3f1268b5b3d87f7e1/docs/pipeline.png)
+---
 
 ## 🎯 Objectives
 
@@ -64,7 +87,7 @@ Hotels struggle to extract meaningful insights from operational data due to:
 - [x] Automate the ETL process using Python
 - [x] Build analytical dashboards in Power BI
 - [x] Train AI/ML models to forecast cancellations and occupancy
-- [ ] Deploy an interactive Streamlit app for self-service exploration
+- [x] Deploy an interactive Streamlit app for self-service exploration
 
 ---
 
@@ -100,9 +123,7 @@ Dashboards        Cancellation / Occupancy Prediction
 
 The operational data model links **Branches → Rooms → Bookings → Guests**, capturing hotel structure, room-level attributes, and reservation details.
 
-> 📷 *[Insert Data Schema diagram here]*
->
-> `docs/images/data_schema.png`
+![image alter](https://github.com/mariam123-0/Smart-Hotel-Analytics/blob/3db2cd462a896056134770a3f1268b5b3d87f7e1/docs/Dataschema.png)
 
 **Core entities:**
 
@@ -135,10 +156,6 @@ This is the backbone of the project — a fully automated **Python ETL pipeline*
 - Load cleaned, modeled data into **SQL Server** using a dimensional (Star Schema) design
 - Incremental-load friendly structure to support scalability and reproducibility
 
-> 📷 *[Insert ETL pipeline flow diagram / screenshot here]*
->
-> `docs/images/etl_pipeline.png`
-
 **Why this matters:** the ETL layer is what turns raw, operational, error-prone data into a **trusted single source of truth** — every dashboard KPI and every AI prediction downstream depends on the quality of this stage.
 
 ---
@@ -165,9 +182,7 @@ Machine learning models (via **scikit-learn**) were trained on historical bookin
 - **Cancellation forecasting** — predicting booking cancellations from guest and booking history
 - **Occupancy forecasting** — estimating occupancy trends per branch/season
 
-> 📷 *[Insert AI results — cluster plots, revenue-by-cluster, price distribution, model metrics here]*
->
-> `docs/images/ai_results.png`
+![image alter](https://github.com/mariam123-0/Smart-Hotel-Analytics/blob/3db2cd462a896056134770a3f1268b5b3d87f7e1/docs/cluster_accuracy.png)
 
 **Key result:** room clustering achieved a Silhouette Score of **0.65**, identifying 3 distinct pricing/performance tiers across the room portfolio.
 
@@ -182,9 +197,7 @@ Interactive dashboards built on top of the Data Warehouse, covering:
 - Bookings by room type
 - Branch-level payment distribution and share
 
-> 📷 *[Insert Power BI dashboard screenshot(s) here]*
->
-> `docs/images/dashboard.png`
+![image alter](https://github.com/mariam123-0/Smart-Hotel-Analytics/blob/3db2cd462a896056134770a3f1268b5b3d87f7e1/docs/DashBoard.png)
 
 ---
 
@@ -192,9 +205,7 @@ Interactive dashboards built on top of the Data Warehouse, covering:
 
 An interactive Streamlit app exposes the warehouse and model outputs for self-service exploration outside of Power BI — useful for demos and portfolio presentation.
 
-> 📷 *[Insert Streamlit app screenshot / demo GIF here]*
->
-> `docs/images/streamlit_app.png`
+![image alter](https://github.com/mariam123-0/Smart-Hotel-Analytics/blob/3db2cd462a896056134770a3f1268b5b3d87f7e1/docs/Streamlit.jpg)
 
 **Planned features:**
 - Filter bookings by branch, room type, and date range
@@ -219,33 +230,6 @@ streamlit run app/streamlit_app.py
 | App Layer | Streamlit |
 | Development | Visual Studio / VS Code |
 | Documentation | Microsoft Word, Canva |
-
----
-
-## 📁 Project Structure
-
-```
-hotel-data-analysis/
-├── data/
-│   ├── raw/                  # Original source datasets
-│   └── processed/            # Cleaned, transformed data
-├── etl/
-│   └── etl_pipeline.py       # Extract–Transform–Load scripts
-├── sql/
-│   └── warehouse_schema.sql  # Star schema DDL
-├── models/
-│   └── cancellation_model.pkl
-├── notebooks/
-│   └── eda_ai_modeling.ipynb
-├── app/
-│   └── streamlit_app.py
-├── dashboards/
-│   └── hotel_dashboard.pbix
-├── docs/
-│   └── images/
-├── README.md
-└── requirements.txt
-```
 
 ---
 
@@ -275,38 +259,3 @@ streamlit run app/streamlit_app.py
 - ✅ Power BI dashboards revealed seasonal demand shifts and top-performing branches
 - ✅ The predictive model achieved strong accuracy in forecasting booking cancellations
 - ✅ Combining BI + AI enables proactive decisions — identifying overbooked seasons, forecasting demand, and optimizing pricing
-
----
-
-## 🔮 Future Work
-
-- Integrate real-time streaming data from live hotel systems
-- Apply AI-driven dynamic pricing optimization
-- Deploy dashboards and the Streamlit app to the cloud for remote access
-- Expand the ML pipeline with revenue forecasting models
-
----
-
-## 👥 Team
-
-| ID | Name |
-|---|---|
-| 21088506 | Mariam Tarek |
-| 21081477 | Shahd Farghaly |
-| 21026189 | Mawadda Karam |
-| 21076970 | Kenzy Mohamed |
-| 21051740 | Mariam Ahmed |
-
-**Supervisor:** Mohamed Hamed
-**Program:** Digital Egypt Builders Initiative — Final Project
-
----
-
-## 📚 References
-
-- Antonio, N., de Almeida, A., & Nunes, L. (2022). Hotel booking demand prediction using machine learning techniques. *Journal of Hospitality and Tourism Technology, 13*(3), 350–367.
-- Guillet, B. D., & Chu, A. M. Y. (2023). Hotel business intelligence and analytics adoption: A systematic literature review. *International Journal of Contemporary Hospitality Management, 35*(6), 2397–2420.
-- Radanliev, P. (2021). Data analytics and business intelligence frameworks in digital supply chain management. *International Journal of Information Management, 58*, 102–123.
-- Statista Research Department. (2024). Revenue impact of business intelligence adoption in hospitality. *Statista Market Insights.*
-- Xiao, Y., & Kumar, V. (2020). Forecasting hotel room demand using machine learning and time-series models. *Tourism Management, 77*, 104–120.
-#
